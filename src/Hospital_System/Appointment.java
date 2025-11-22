@@ -55,6 +55,12 @@ public class Appointment {
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
+
+	@Override
+	public String toString() {
+		return "Appointment [appid=" + appid + ", patient=" + patient + ", doctor=" + doctor + ", date=" + date + "]";
+	}
+	
 	
 	
 	

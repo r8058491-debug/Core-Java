@@ -32,10 +32,18 @@ public class Patient extends Person implements Billable {
 
 
 	public void getDetails() {
-		System.out.println("Patient Name :"+ getName() + "Patient Id :"+ getPatientId()+ "Type :" + getType() );
+		System.out.println("Patient Name :"+ getName() + ", Patient Id :"+ getPatientId()+ ", Type :" + getType() );
 	}
 	
 	public double generateBill() {
 		return type.equalsIgnoreCase("Surgery") ? 5000:10000;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Patient [Patient Name :"+ name+  ", Patient Id :" + patientId + ", type=" + type + "]";
+	}
+	
+	
 }

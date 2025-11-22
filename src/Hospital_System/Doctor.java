@@ -40,6 +40,12 @@ public class Doctor extends Person{
 	public void getDetails() {
 		System.out.println("Doctor :"+ getName()+"||Doctor Id :"+ getDocId()+ "Specialization :"+ getSpecialisation()+ "Experience :" + getExperience() );
 	}
+
+	@Override
+	public String toString() {
+		return "Doctor [Doctor Name :"+name+", docId= " + docId + ", specialisation=" + specialisation + ", experience=" + experience + "]";
+	}
+	
 	
 	
 }
