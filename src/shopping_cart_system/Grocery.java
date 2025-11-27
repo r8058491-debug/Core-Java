@@ -7,7 +7,7 @@ public class Grocery extends Product {
 
 	@Override
 	public void getDetails() {
-		System.out.println("Grocery Id :"+getProductId()+"Price of Grocery :"+getPrice()+"Quantity of Grocery :"+getQuantity());
+		System.out.println("Grocery Id :"+getProductId()+" | Price of Grocery :"+getPrice()+" | Quantity of Grocery :"+getQuantity());
 	}
 
 	@Override

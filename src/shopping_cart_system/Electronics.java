@@ -7,7 +7,7 @@ public class Electronics extends Product {
 
 	@Override
 	public void getDetails() {
-		System.out.println("Electronics Id :"+getProductId()+"Price of Electronics :"+getPrice()+"Quantity of Electronics :"+getQuantity());
+		System.out.println("Electronics Id :"+getProductId()+" | Price of Electronics :"+getPrice()+" | Quantity of Electronics :"+getQuantity());
 	}
 
 	@Override
