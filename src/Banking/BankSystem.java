@@ -109,9 +109,9 @@ public class BankSystem {
 
 		BankAccount newAcc=null;
 
-		if(type==1) {newAcc=new SavingAccount(accNo,name,bal);
+		if(type==1) {newAcc=new SavingAccount(accNo,name,balan);
 		}
-		elseif(type==2){newAcc=new CurrentAccount(accNo,name,bal);
+		else if(type==2){newAcc=new CurrentAccount(accNo,name,type);
 		}
 		else {
 			System.out.println("Invalid Type");
