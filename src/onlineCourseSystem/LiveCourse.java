@@ -18,9 +18,6 @@ public class LiveCourse extends Course {
 
 	@Override
 	public void enroll(Student student) {
-		// TODO Auto-generated method stub
-		
+			
 	}
-	
-
 }
