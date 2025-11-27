@@ -1,4 +1,4 @@
-package Hospital_System;
+ackage Hospital_System;
 import java.time.LocalDate;
 
 public class Appointment {
