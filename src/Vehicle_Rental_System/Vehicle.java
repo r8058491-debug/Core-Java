@@ -1,61 +1,82 @@
 package Vehicle_Rental_System;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Vehicle implements Rentable {
-	private String vId;
-	private String brand;
-	private int average;
-	private double price;
-	private boolean isAvailable;
+	protected String vId;
+	protected String brand;
+	protected int average;
+	protected double dailyRate;
+	protected boolean isAvailable;
+
+
+//	private static List<Booking> booking=new ArrayList<>();
+//	private static List<Customer> customer=new ArrayList<>();
+//	
+//	public void addVehicle(Vehicle vehicle) {
+//		bookingVehicle.add(vehicle);
+//	}
+
+
+
 	public Vehicle(String vId, String brand, int average, double price) {
 		super();
 		this.vId = vId;
 		this.brand = brand;
 		this.average = average;
-		this.price = price;
+		this.dailyRate = price;
 		this.isAvailable=true;
 	}
+
+	public abstract void rent(int days) throws VehicleNotAvailableException ;
+	public abstract void returnVehicle(String id);
+	public abstract double calculateRentalCost(int days);
+
+	@Override
+	public String toString() {
+		return "Vehicle [vId=" + vId + ", brand=" + brand + ", average=" + average + ", price=" + dailyRate
+				+ ", isAvailable=" + isAvailable + "]";
+	}
+
 	public String getvId() {
 		return vId;
 	}
+
+	public void setvId(String vId) {
+		this.vId = vId;
+	}
+
 	public String getBrand() {
 		return brand;
 	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
 	public int getAverage() {
 		return average;
 	}
-	public double getPrice() {
-		return price;
+
+	public void setAverage(int average) {
+		this.average = average;
 	}
+
+	public double getdailyRate() {
+		return dailyRate;
+	}
+
+	public void setdailyRate(double dailyRate) {
+		this.dailyRate = dailyRate;
+	}
+
 	public boolean isAvailable() {
 		return isAvailable;
 	}
-	
-	public void setAvailable(boolean available) {
-		isAvailable=available;
+
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = true;
 	}
-	
-	public abstract double calculateRentalCost(int days);
-	
-	public void rent(int days) throws VehicleNotAvailableException{
-		if(!isAvailable) throw new VehicleNotAvailableException(brand +"is already rented.");
-		
-		setAvailable(false);
-		double cost=calculateRentalCost(days);
-		System.out.println("Vehicle Rented "+ brand);
-		
-	}
-	
-	public void returnVehicle() {
-		setAvailable(true);
-		System.out.println(brand +"has been returned & is now available..");
-		
-	}
-	@Override
-	public String toString() {
-		return "Vehicle [vId=" + vId + ", brand=" + brand + ", average=" + average + ", price=" + price
-				+ ", isAvailable=" + isAvailable + "]";
-	}
-	
-	
 
 }
