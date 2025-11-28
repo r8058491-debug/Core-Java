@@ -78,7 +78,7 @@ public class RentalSystem {
 		String b=sc.nextLine();
 		Vehicle p=findVehicleByBrand();
 		if(b.equals(p)) {
-			System.out.println("Vehicle Id :"+getVId()+"");
+			System.out.println("Vehicle Id :"+vId+"");
 			
 		}
 
