@@ -39,7 +39,7 @@ public abstract class Product implements Discountable {
 
 	@Override
 	public String toString() {
-		return "Product [productId=" + productId + ", price=" + price + ", quantity=" + quantity + "]";
+		return "Product [productId=" + productId + ", price=" + getPrice() + ", quantity=" + quantity + "]";
 	}
 	
 
