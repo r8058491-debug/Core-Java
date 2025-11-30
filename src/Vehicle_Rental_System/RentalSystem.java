@@ -3,6 +3,7 @@ import java.util.*;
 
 public class RentalSystem {
 	private static List<Vehicle> vehicles=new ArrayList<>();
+	private static List<Vehicle> rentedvehicles=new ArrayList<>();
 	private static List<Car> car=new ArrayList<>();
 	private static List<Bike> bike=new ArrayList<>();
 	private static List<Truck> truck=new ArrayList<>();
@@ -123,6 +124,10 @@ public class RentalSystem {
 	}
 
 	private static void showRentedVehicle() {
+		System.out.println("\n------ALL RENTED VEHICLES------");
+		for(Vehicle v:rentedvehicles) {
+			v.toString();
+		}
 
 	}
 	private static Vehicle findVehicleByBrand(){
@@ -187,8 +192,5 @@ public class RentalSystem {
 				return i;
 			}
 		return null;
-
 	}
-
-
 }

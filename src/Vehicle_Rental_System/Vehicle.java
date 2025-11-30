@@ -9,17 +9,7 @@ public abstract class Vehicle implements Rentable {
 	protected int average;
 	protected double dailyRate;
 	protected boolean isAvailable;
-
-
-//	private static List<Booking> booking=new ArrayList<>();
-//	private static List<Customer> customer=new ArrayList<>();
-//	
-//	public void addVehicle(Vehicle vehicle) {
-//		bookingVehicle.add(vehicle);
-//	}
-
-
-
+	
 	public Vehicle(String vId, String brand, int average, double price) {
 		super();
 		this.vId = vId;
