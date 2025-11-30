@@ -16,7 +16,7 @@ public class Main {
 			System.out.println("2. Add to Cart :");
 			System.out.println("3. Remove Cart :");
 			System.out.println("4. Display Cart :");
-			System.out.println("5. Price Details :");
+			System.out.println("5. Details With Price :");
 			System.out.println("6. Exit :");
 			System.out.println("Enter the choice :");
 			choice=sc.nextInt();
@@ -35,12 +35,12 @@ public class Main {
 	}
 
 	private static void initializeData() {
-		products.add(new Clothing("C13",2000.00,5));
-		products.add(new Clothing("C12",1000.50,2));
-		products.add(new Electronics("E223",5000.00,1));
-		products.add(new Electronics("E123",10000.00,2));
-		products.add(new Grocery("G23",5000.00,5));
-		products.add(new Grocery("G112",7050.50,5));
+		products.add(new Clothing("C13","Sweater",2000.00,5,"Woollen"));
+		products.add(new Clothing("C12","Kurta",1000.50,2,"Cotton"));
+		products.add(new Electronics("E223","Oven",5000.00,1,5));
+		products.add(new Electronics("E123","Speaker",10000.00,2,4));
+		products.add(new Grocery("G23","Oats",5000.00,5,"after 36 months"));
+		products.add(new Grocery("G112","PeanutButter",7050.50,5,"after 12 months"));
 	}
 
 	private static void showProducts() {
@@ -58,15 +58,19 @@ public class Main {
 
 		for(Product p:products) {
 			if(p.getProductId().equals(id)) {
-				cart.add(p);
-				System.out.println(p.toString() +" added to cart.");
-				return;
+
+				if(q>p.getQuantity()) {
+					try {
+						throw new OutOfStockException("We don't have this much quantity..");
+					}catch(OutOfStockException e) {
+						System.out.println(e.getMessage());
+						return;
+					}
+				}
 			}
-			else if(p.getQuantity()<=q)  throws OutOfStockException{
-				throw new ("We don't have too much quantity...");
-				
-				return;
-			}
+			cart.add(p);
+			System.out.println(p.toString() +" added to cart.");
+			return;
 		}
 		System.out.println("Invalid Product Id");
 	}
@@ -77,7 +81,8 @@ public class Main {
 		String r=sc.nextLine();
 		for(Product p:cart) {
 			if(p.getProductId().equals(r)) {
-				cart.remove(p);
+				cart.remove(r);
+				System.out.println("Removed Successfully!!");
 			}
 		}
 		System.out.println("Not Found");
@@ -88,7 +93,7 @@ public class Main {
 		for(Product p:cart) {
 			System.out.println(p);
 		}
-		if(cart==null) {
+		if(cart.isEmpty()) {
 			System.out.println("Add to Something...");
 		}
 
