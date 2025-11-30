@@ -6,16 +6,16 @@ public class RentalSystem {
 	private static List<Car> car=new ArrayList<>();
 	private static List<Bike> bike=new ArrayList<>();
 	private static List<Truck> truck=new ArrayList<>();
-	
+
 	private static Scanner sc=new Scanner(System.in);
 
-	public static void main(String[]args) {
+	public static void main(String[]args) throws VehicleNotAvailableException {
 		//		(String carId,String brand,int average,double price,boolean isAvailable)
-		
+
 		initializeData();
 		int choice;
-		
-		
+
+
 
 		do {
 			System.out.println("\n-------Welcome to Jagjee Vehicle Rental System-----");
@@ -32,7 +32,7 @@ public class RentalSystem {
 			switch(choice) {
 
 			case 1 -> showAllVehicles();
-			case 2 -> rentVehicle();
+			case 2 -> rentVehicle(choice);
 			case 3 -> returnVehicle();
 			case 4 -> updateVehicle();
 			case 5 -> removeVehicle();
@@ -42,62 +42,6 @@ public class RentalSystem {
 			}
 		}while(choice!=7);
 	}
-
-	private static void showRentedVehicle() {
-
-	}
-
-	private static void removeVehicle() {
-		sc.nextLine();
-		System.out.print("Enter the Vehicle ID :");
-		String vI=sc.nextLine();
-		Vehicle vd=findVehicleById();
-		if(vI.equals(vd)) {
-			vehicles.remove(vI);
-		}
-		
-	}
-
-	private static void updateVehicle() {
-		System.out.print("Enter the Id :");
-		String id=sc.next();
-		Vehicle obj=findVehicleById();
-//		Vehicle pobj=obj.getBrand();
-		System.out.print(" Do you want to update the name of Vehicle ?");
-		String nam=sc.next();
-		
-	}
-
-	private static void returnVehicle() {
-
-	}
-
-	private static void rentVehicle() {
-		sc.nextLine();
-		System.out.println("Enter the Brand :");
-		String b=sc.nextLine();
-		Vehicle p=findVehicleByBrand();
-		if(b.equals(p)) {
-			System.out.println("Vehicle Id :"+vId+"");
-			
-		}
-
-		
-	}
-
-
-	private static Vehicle findVehicleByBrand(){
-		sc.nextLine();
-		System.out.println("Enter the Brand :");
-		String b=sc.nextLine();
-		for(Vehicle v:vehicles) {
-			v.getBrand().equalsIgnoreCase(b);
-			return v;
-		}
-		return null;
-		
-	}
-
 	private static void showAllVehicles() {
 		int c;
 		do {
@@ -109,7 +53,7 @@ public class RentalSystem {
 			System.out.println(" 5. Exit :");
 			System.out.println(" Enter the choice :");
 			c=sc.nextInt();
-			
+
 			switch(c) {
 			case 1 -> displayCar();
 			case 2 -> displayBike();
@@ -117,36 +61,101 @@ public class RentalSystem {
 			case 4 -> displayAllVehicle();
 			case 5 -> System.out.print("EXIT:");
 			default -> System.out.println("Invalid Choice.");
-		
+
 			}
 
 		}while(c!=5);
 	}
+	private static void rentVehicle(int days) throws VehicleNotAvailableException {
+		sc.nextLine();
+		System.out.println("Enter the Brand :");
+		String b=sc.nextLine();
+		Vehicle p=findVehicleByBrand();
+		if(p==null) { throw new VehicleNotAvailableException("Vehicle Not Available...");
+		}else {
+			System.out.println("Vehicle Rented "+"for"+vehicles.get(days));
+			System.out.println("Rented Successfully");
+		}
+	}
+	private static void returnVehicle() {
+		sc.nextLine();
+		System.out.println("Enter the Vehicle Id :");
+		String v=sc.nextLine();
+		for(Vehicle vc:vehicles) {
+			if(vc.getvId().equalsIgnoreCase(v)) {
+				if(vc.isAvailable()) {
+					vc.returnVehicle(v);
+					System.out.println("Vehicle Returned Successfully..");
+				}
+				
+			}
+			else {
+				System.out.println("This vehicle is not rented...");
+			}
+			return;
+		}
+		System.out.println("Vehicle Not Found!!");
 
+	}
+	private static void updateVehicle() {
+		System.out.print("Enter the Id :");
+		String id=sc.next();
+		Vehicle obj=findVehicleById();
+		//		Vehicle pobj=obj.getBrand();
+		System.out.print(" Do you want to update the brand of Vehicle ?");
+		String brand=sc.next();
+		for(Vehicle v:vehicles) {
+			v.setBrand(brand);
+		}
+		System.out.println("Updated Successfully....");
+
+	}
+	private static void removeVehicle() {
+		sc.nextLine();
+		System.out.print("Enter the Vehicle ID :");
+		String vI=sc.nextLine();
+		Vehicle vd=findVehicleById();
+		if(vI.equals(vd)) {
+			vehicles.remove(vI);
+		}
+		System.out.println("Removed Successfully...");
+
+	}
+
+	private static void showRentedVehicle() {
+
+	}
+	private static Vehicle findVehicleByBrand(){
+		sc.nextLine();
+		System.out.println("Enter the Brand :");
+		String b=sc.nextLine();
+		for(Vehicle v:vehicles) {
+			v.getBrand().equalsIgnoreCase(b);
+			return v;
+		}
+		return null;
+
+	}
 	private static void displayAllVehicle() {
 		for(Vehicle v:vehicles) {
 			System.out.println(v);
 		}
 	}
-
 	private static void displayTruck() {
 		for(Vehicle t:truck) {
 			System.out.println(t);
 		}
 	}
-
 	private static void displayBike() {
 		for(Vehicle b:bike) {
 			System.out.println(b);
 		}
 	}
-
 	private static void displayCar() {
 		for(Vehicle c:car) {
 			System.out.println(c);
 		}
 	}
-
 	private static void initializeData() {
 		Car c1=new Car("DL3S1234","Range Rover",150,150000.00);
 		Car c2=new Car("HR516374","Thar",140,100000.50);
@@ -166,9 +175,9 @@ public class RentalSystem {
 		vehicles.add(t2);
 		truck.add(t1);
 		truck.add(t2);
-		
+
 	}
-	
+
 	//1st Mistake--> Jab parameters mein id le rahe ho to niche users se id nahi maangoge...phir sidha for each loop chala kar Vehicle list se vehicles 
 	private static Vehicle findVehicleById() {
 		System.out.println("Enter the Vehicle Id :");
@@ -178,7 +187,7 @@ public class RentalSystem {
 				return i;
 			}
 		return null;
-		
+
 	}
 
 
