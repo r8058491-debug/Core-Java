@@ -71,11 +71,14 @@ public class RentalSystem {
 		sc.nextLine();
 		System.out.println("Enter the Brand :");
 		String b=sc.nextLine();
+		System.out.println("Enter the days :");
+		days=sc.nextInt();
 		Vehicle p=findVehicleByBrand();
 		if(p==null) { throw new VehicleNotAvailableException("Vehicle Not Available...");
 		}else {
-			System.out.println("Vehicle Rented "+"for"+vehicles.get(days));
+			System.out.println("Vehicle "+ b +" rented "+" for "+vehicles.get(days));
 			System.out.println("Rented Successfully");
+			rentedvehicles.add(p);
 		}
 	}
 	private static void returnVehicle() {
