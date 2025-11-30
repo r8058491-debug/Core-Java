@@ -1,5 +1,8 @@
 package onlineCourseSystem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Instructor {
 	private String instructorId;
 	private String instructorName;
@@ -10,6 +13,7 @@ public class Instructor {
 		this.instructorId=name;
 		this.experience=e;
 	}
+	private static List<Instructor> instructors=new ArrayList<>();
 	
 
 	public int getExperience() {

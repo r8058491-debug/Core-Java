@@ -4,18 +4,19 @@ import java.util.*;
 
 public class Student  {
 	private String studentId;
+	private String password;
 	private String studentName;
 	private long contact;
-	private String password;
 	private String Ctype;
 	
-	public Student(String id,String name,long c,String p,String t) {
+	public Student(String id,String p,String name,long c,String t) {
 		this.studentId=id;
+		this.password=p;
 		this.studentName=name;
 		this.contact=c;
-		this.password=p;
 		this.Ctype=t;
 	}
+	private static List<Course> enrolledCourses=new ArrayList<>();
 
 	public String getStudentId() {
 		return studentId;
@@ -56,4 +57,24 @@ public class Student  {
 	public void setCtype(String ctype) {
 		Ctype = ctype;
 	}
+	
+	public void showReport() {
+		System.out.println("Id :"+studentId+"| Name :"+ studentName+"/n Enrolled in :");
+		if(enrolledCourses.isEmpty()) {
+			System.out.println("No Courses Enrolled..");
+			return;
+		}
+		for(Course c:enrolledCourses) {
+			System.out.println(c.getSubject());
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", password=" + password + ", studentName=" + studentName
+				+ ", contact=" + contact + ", Ctype=" + Ctype + "]";
+	}
+	
+	
+	
 }

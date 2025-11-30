@@ -1,13 +1,23 @@
 package onlineCourseSystem;
 
 public class VideoCourse extends Course {
-	public  VideoCourse(String id,String name,String subject,double price) {
+	
+	private int totalHours;
+	
+	public  VideoCourse(String id,String name,String subject,double price,int totalhours) {
 		super(id,name,subject,price);
+		this.totalHours=totalhours;
+	}
+	public int getTotalHours() {
+		return totalHours;
+	}
+	public void setTotalHours(int totalHours) {
+		this.totalHours = totalHours;
 	}
 
 	@Override
 	public void showDetails() {
-		System.out.println("Video Course Id :"+getId()+"Course Name :"+getName()+"Subject :"+getSubject()+"Price :"+getPrice());
+		System.out.println("Video Course Id :"+getId()+" | Course Name :"+getName()+" | Subject :"+getSubject()+" | Price :"+getPrice()+" | Total Hours :"+ getTotalHours());
 	}
 
 	@Override
