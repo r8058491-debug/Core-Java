@@ -109,7 +109,7 @@ public class BankSystem {
 
 		BankAccount newAcc=null;
 
-		if(type==1) {newAcc=new SavingAccount(accNo,name,balan);
+		if(type==1) {newAcc=new SavingAccount(accNo,name,type);
 		}
 		else if(type==2){newAcc=new CurrentAccount(accNo,name,type);
 		}
