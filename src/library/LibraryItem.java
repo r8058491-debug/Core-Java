@@ -20,10 +20,39 @@ public  abstract class LibraryItem implements Borrowable{
 		return "LibraryItem [itemId=" + itemId + ", title=" + title + ", available=" + Isavailable + ", borrowLimit="
 				+ borrowLimit + "]";
 	}
+
+	public String getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public boolean isIsavailable() {
+		return Isavailable;
+	}
+
+	public void setIsavailable(boolean isavailable) {
+		Isavailable = isavailable;
+	}
+
+	public int getBorrowLimit() {
+		return borrowLimit;
+	}
+
+	public void setBorrowLimit(int borrowLimit) {
+		this.borrowLimit = borrowLimit;
+	}
 	
-	protected abstract String getItemId();
-	protected abstract String getTitle();
-	protected abstract Boolean getIsAvailable();
-	protected abstract Integer getBorrowLimit();
+	
 	
 }
