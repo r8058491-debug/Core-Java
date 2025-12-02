@@ -40,10 +40,7 @@ public class Book extends LibraryItem {
 	public void setIsAvailable(boolean available) {
 		this.Isavailable=available;
 	}
-	
-	public Integer getBorrowLimit() {
-		return borrowLimit;
-	}
+
 
 	@Override
 	public void borrow() {
