@@ -6,14 +6,16 @@ public class SearchWord {
 		try {
 			BufferedReader br=new BufferedReader(new FileReader("Text.txt"));
 			String line;
+			boolean found=false;
 			Scanner src=new Scanner(System.in);
 			System.out.println("Enter the Word :");
 			String word=src.nextLine();
 			while((line=br.readLine())!=null) {
-				if(br.readLine().equalsIgnoreCase(word)) {
-					System.out.println("word");
+				if(line.contains(word)) {
+					System.out.println(word +" Word exist in this file....");
+					found=true;
 				}
-				else {
+				if(!found) {
 					System.out.println("Word not exist in this file..");
 				}
 			}
