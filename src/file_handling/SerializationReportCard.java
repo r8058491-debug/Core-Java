@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 
 public class SerializationReportCard {
 	public static void main(String[]args) {
-		//String name,int age,int cclass,String sub,int marks;
+//		//String name,int age,int cclass,String sub,int marks;
 //		StudentReportCard s=new StudentReportCard("Rajat",21,12,"Math",95);
 ////Serialization.....		
 //		try(ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("StudentReportCard.ser"))){
@@ -18,16 +18,16 @@ public class SerializationReportCard {
 //		}
 
 		
-//		//Serialize with serialVersionUid		
-//		S1ReportCard ss=new S1ReportCard("Rajat",23);
-//		try(ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("S1ReportCard.ser"))){
-//			oos.writeObject(ss);
-//		}catch(IOException e) {
-//			System.out.println("Error :"+e.getLocalizedMessage());
-//		}
+		//Serialize with serialVersionUid		
+		S1ReportCard ss=new S1ReportCard("Rajat",23);
+		try(ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("S1ReportCard.ser"))){
+			oos.writeObject(ss);
+		}catch(IOException e) {
+			System.out.println("Error :"+e.getLocalizedMessage());
+		}
 		
 		
-//Deserialization.......
+////Deserialization.......
 //		try(ObjectInputStream ois=new ObjectInputStream(new FileInputStream("StudentReportCard.ser"))){
 //			StudentReportCard s1= (StudentReportCard)ois.readObject();
 //			System.out.println("Object deserialized :"+"\nName :"+s1.name+"\nAge :"+s1.age+"\nClass :"+s1.cclass+"th"+"\nSubject :"+s1.sub+"\nMarks :"+s1.marks+"%");

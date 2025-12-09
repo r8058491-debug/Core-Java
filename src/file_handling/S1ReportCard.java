@@ -7,12 +7,10 @@ public class S1ReportCard implements Serializable{
 	
 	String name;
 	int age;
-	String subject;
 	
-	public S1ReportCard(String n,int a,String sub) {
+	public S1ReportCard(String n,int a) {
 		this.name=n;
 		this.age=a;
-		this.subject=sub;
 	}
 
 }
