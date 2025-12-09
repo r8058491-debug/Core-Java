@@ -5,8 +5,15 @@ import java.util.Scanner;
 public class Employee {
 	private int empid;
 	private String ename;
+	private String department;
 	private float basicsalary;
 	
+	public Employee(String string, String string2, int i) {
+		this.ename=string;
+		this.department=string2;
+		this.basicsalary=i;
+	}
+
 	void input() {
 		Scanner src=new Scanner(System.in);
 		System.out.println("Enter the empId :");
@@ -37,5 +44,20 @@ public class Employee {
 		Employee e= new Employee();
 		e.input();
 		e.display();
+	}
+
+	public float getSalary() {
+		// TODO Auto-generated method stub
+		return basicsalary;
+	}
+
+	public String getDepartment() {
+		// TODO Auto-generated method stub
+		return department;
+	}
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return ename;
 	}
 }
