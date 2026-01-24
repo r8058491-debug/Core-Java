@@ -42,7 +42,7 @@ public class UpdateCommands {
 	-- add column  Average int ;
 
 	-- <<<<<<<<<<<<SUBQUERY>>>>>>>
-	-- update employeee   
+	-- update employee  
 	-- set salary= (Select avg(salary) from Employee)
 	-- where salary <40000;
 	-- update employeee set dept='support' where name like'%a';
