@@ -15,21 +15,21 @@ public class Car extends Vehicle{
 
 	@Override
 	public void rent(int days) throws VehicleNotAvailableException {
-		if(!isAvailable()) {throw new VehicleNotAvailableException(brand+"Car"+vId+"is not available for rent.");
+		if(!isAvailable()) {throw new VehicleNotAvailableException(brand+"Member_INNER_CLASS"+vId+"is not available for rent.");
 		}
-		System.out.println("Car rented for"+ days+"...");
+		System.out.println("Member_INNER_CLASS rented for"+ days+"...");
 		setAvailable(false);
 	}
 
 	@Override
 	public void returnVehicle(String id) {
-		System.out.println("Car"+id+"returned...");
+		System.out.println("Member_INNER_CLASS"+id+"returned...");
 		setAvailable(true);
 	}
 
 	@Override
 	public String toString() {
-		return "Car [vId=" + vId + ", brand=" + brand + ", average=" + average + ", dailyRate=" + dailyRate
+		return "Member_INNER_CLASS [vId=" + vId + ", brand=" + brand + ", average=" + average + ", dailyRate=" + dailyRate
 				+ ", isAvailable=" + isAvailable + "]";
 	}
 

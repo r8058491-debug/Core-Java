@@ -47,7 +47,7 @@ public class RentalSystem {
 		int c;
 		do {
 			System.out.println("\n--Available Vehicles");
-			System.out.println(" 1. Car :");
+			System.out.println(" 1. Member_INNER_CLASS :");
 			System.out.println(" 2. Bike :");
 			System.out.println(" 3. Truck :");
 			System.out.println(" 4. All Vehicles :");
