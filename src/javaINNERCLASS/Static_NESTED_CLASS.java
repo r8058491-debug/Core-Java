@@ -1,4 +1,4 @@
-package javaBASICS;
+package javaINNERCLASS;
 
 public class Static_NESTED_CLASS {
 	private String model;

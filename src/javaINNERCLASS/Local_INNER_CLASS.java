@@ -1,4 +1,4 @@
-package javaBASICS;
+package javaINNERCLASS;
 
 public class Local_INNER_CLASS {
 	private String name;

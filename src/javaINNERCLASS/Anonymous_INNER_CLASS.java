@@ -1,4 +1,4 @@
-package javaBASICS;
+package javaINNERCLASS;
 
 public class Anonymous_INNER_CLASS {
 	private double totalAmount;

@@ -1,4 +1,4 @@
-package javaBASICS;
+package javaINNERCLASS;
 
 public class Member_INNER_CLASS {
 	private String model;

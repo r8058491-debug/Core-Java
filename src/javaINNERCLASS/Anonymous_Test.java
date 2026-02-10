@@ -1,4 +1,4 @@
-package javaBASICS;
+package javaINNERCLASS;
 
 public class Anonymous_Test {
 	public static void main(String[]args) {
