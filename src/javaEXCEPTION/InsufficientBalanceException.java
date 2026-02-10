@@ -1,5 +1,7 @@
 package javaEXCEPTION;
 
 public class InsufficientBalanceException extends Exception{
-	public InsufficientBalanceException(super(message));
+	public InsufficientBalanceException(String msg) {
+		super(msg);
+	}
 }
